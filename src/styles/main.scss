@@ -1,13 +1,5 @@
 .main {
-    background-image: url("https://abrakadabra.fun/uploads/posts/2022-01/1641100108_17-abrakadabra-fun-p-fon-dlya-shkolnogo-bannera-visokogo-kaches-18.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-
+    display: none;
     &__contant{
         margin: 0 auto;
         max-width: 900px;
@@ -15,16 +7,9 @@
         flex-direction: column;
         align-items: center;
     }
+
     &__name {
-        height: 42px;
-        border-radius: 4px;
-        font-size: 16px;
-        padding: 0 10px;
-        border: 1px solid black;
-        text-align: center;
-        &:focus {
-            outline: 2px solid black
-        }
+      
     }
 
     &__modes {
@@ -35,25 +20,10 @@
     &__btn {
         margin-top: 30px;
         width: 100px;
-        height: 42px;
-        background-color: rgb(73, 187, 21);
-        color: #FAFAFA;
-        border-radius: 4px;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: rgba(46, 131, 7, 0.811); 
-        }
-        &:active {
-            position: relative;
-            bottom: -1px;
-            right: -1px;
-        }
     }
     &__link {
         margin-top: 15px;
+        padding: 5px;
         color: #0278ED;
         text-decoration: none;
         &:hover{

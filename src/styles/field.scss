@@ -1,0 +1,99 @@
+.field {
+    display: none;
+    // .field__contant
+
+    &__contant {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 900px;
+    }
+
+    // .field__level
+
+    &__level {
+        text-align: center;
+    }
+
+    // .field__items
+
+    &__items {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .field__user-items
+
+    &__user-items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .field__user-name
+
+    &__user-name {
+    }
+
+    // .field__score
+
+    &__score {
+    }
+
+    // .field__timer
+
+    &__timer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .field__timer-title
+
+    &__timer-title {
+    }
+
+    // .field__timer-value
+
+    &__timer-value {
+    }
+
+    // .field__list
+
+    &__list {
+        width: 50%;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0;
+
+    }
+
+    // .field__list-item
+
+    &__list-item {
+        font-family: $number-font;
+        font-size: 80px;
+    }
+
+    // .field__input-items
+
+    &__input-items {
+    }
+
+    // .field__stop
+
+    &__stop {
+        
+    }
+
+    // .field__input-value
+
+    &__input-value {
+    }
+
+    // .field__check
+
+    &__check {
+    }
+}
+
