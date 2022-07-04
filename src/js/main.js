@@ -1,3 +1,5 @@
+import { gameInit } from "./field"
+
 export const getPlayerFromLocalStorage = () => {
    return localStorage.getItem('playerName') || "player"
 }
@@ -13,7 +15,7 @@ const setPlayerName = () => {
     inputName.focus()
 }
 
-const checkInputName = (input) => {
+export const checkInput = (input) => {
     return input.value ? true : false
 }
 
@@ -22,11 +24,18 @@ export const changeActiveWindow = (from, to) => {
     document.querySelector(`.${to}`).classList.add("block_active")
 }
 
+const getMode = () => {
+    const radioElem = document.querySelector("#practice")
+    return radioElem.checked ? "practice" : "timeAttack"
+}
+
 const handleGoBtn = () => {
     const inputName = document.querySelector("#name")
-    if(checkInputName(inputName)){
+    if(checkInput(inputName)){
         setPlayerToLocalStorage(inputName.value)
         changeActiveWindow('main', 'field')
+        gameInit(getMode())
+
     } else {
         inputName.focus();
     }
@@ -34,5 +43,5 @@ const handleGoBtn = () => {
 
 export const initGame = () => {
     setPlayerName();
-    document.querySelector('.main__btn').addEventListener('click', handleGoBtn)
+    document.querySelector('.main__btn')?.addEventListener('click', handleGoBtn)
 }

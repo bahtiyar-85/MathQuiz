@@ -1,7 +1,7 @@
 .field {
     display: none;
-    // .field__contant
 
+    // .field__contant
     &__contant {
         display: flex;
         flex-direction: column;
@@ -10,13 +10,11 @@
     }
 
     // .field__level
-
     &__level {
         text-align: center;
     }
 
     // .field__items
-
     &__items {
         width: 60%;
         display: flex;
@@ -24,41 +22,46 @@
     }
 
     // .field__user-items
-
     &__user-items {
         display: flex;
         flex-direction: column;
     }
 
     // .field__user-name
-
     &__user-name {
     }
 
     // .field__score
-
     &__score {
     }
 
     // .field__timer
-
     &__timer {
         display: flex;
         flex-direction: column;
     }
 
     // .field__timer-title
-
     &__timer-title {
+        text-align: center;
     }
 
-    // .field__timer-value
+    // .field__timer-items
+    &__timer-items {
+        padding-left: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        width: 100px;
+    }
 
-    &__timer-value {
+    // .field__timer-item {
+    &__timer-item {
+       width: 25px;
+       text-align: center;
     }
 
     // .field__list
-
     &__list {
         width: 50%;
         list-style-type: none;
@@ -69,30 +72,25 @@
     }
 
     // .field__list-item
-
     &__list-item {
         font-family: $number-font;
         font-size: 80px;
     }
 
     // .field__input-items
-
     &__input-items {
     }
 
     // .field__stop
-
     &__stop {
         
     }
 
     // .field__input-value
-
     &__input-value {
     }
 
     // .field__check
-
     &__check {
     }
 }

@@ -30,23 +30,33 @@
     </section>
     <section class="field fullscreen">
         <div class="field__contant">
-            <h3 class="field__level">Level 1</h3>
+            <h3 class="field__level">Level 
+                <span class="field__level-value">1</span>
+            </h3>
             <div class="field__items">
                 <div class="field__user-items">
-                    <span class="field__user-name">Your name: Baha</span>
-                    <span class="field__score">Your score: 23</span>
+                    <span class="field__user-name">Your name:
+                        <span class="field__user-value"></span>
+                    </span>
+                    <span class="field__score">Your score: 
+                        <span class="field__score-value">0</span>
+                    </span>
                 </div>
                 <div class="field__timer">
                     <span class="field__timer-title">time</span>
-                    <span class="field__timer-value">01:23</span>
+                    <ul class="field__timer-items">
+                        <li class="field__timer-item field__timer-minutes">00</li>
+                        <li class="field__timer-item">:</li>
+                        <li class="field__timer-item field__timer-seconds">00</li>
+                    </ul>
                 </div>
             </div>
             <ul class="field__list">
-                <li class="field__list-item">3</li> 
-                <li class="field__list-item">+</li>
-                <li class="field__list-item">2</li>
+                <li class="field__list-item field__number1">3</li> 
+                <li class="field__list-item field__operator">+</li>
+                <li class="field__list-item field__number2">2</li>
                 <li class="field__list-item">=</li>
-                <li class="field__list-item">6</li>           
+                <li class="field__list-item field__result">?</li>           
             </ul>
             <div class="field__input-items">
                 <button class="button field__stop">Stop</button>
@@ -55,6 +65,22 @@
             </div>
         </div>
     </section>
-
+    <section class="board fullscreen">
+        <div class="board__contant">
+            <h3></h3>
+        </div>
+    </section>
+    <div class="modal">
+        <div class="modal__contant">
+            <p class="modal__back">Back to main menu</p>
+            <h3 class="modal__title">Time's up</h3>
+            <p class="modal__score">Your score:</p>
+            <h5 class="modal__score-value">12</h5>
+            <p class="modal__correct"> Correct: <span class="modal__correct-value"></span></p>
+            <p class="modal__incorrect"> Incorrect: <span class="modal__incorrect-value"></span></p>
+            <button class="button modal__leader-board">Leaderboard</button>
+            <button class="button modal__play-again">Play again</button>
+        </div>
+    </div>
 </body>
 </html>
