@@ -96,8 +96,7 @@ const modalToggle = () => {
 }
 
 export const getLeaderFromStorage = (mode) => {
-    const leaderList = JSON.parse(localStorage.getItem(mode)) || []
-    console.log(leaderList);
+    return  JSON.parse(localStorage.getItem(mode)) || []
 }
 
 const setLeaderToStorage = (mode, name, score) => {
@@ -111,7 +110,7 @@ const setLeaderToStorage = (mode, name, score) => {
     localStorage.setItem(mode, JSON.stringify(leaderList))
 }
 
-export const gameInit = (mode) => {
+export const gameFieldInit = (mode) => {
   
     const handleCheck = () => {
         input.focus()

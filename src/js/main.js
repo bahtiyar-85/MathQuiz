@@ -1,4 +1,5 @@
-import { gameInit } from "./field"
+import { gameFieldInit } from "./field"
+import { boardInit } from "./leadersBoard"
 
 export const getPlayerFromLocalStorage = () => {
    return localStorage.getItem('playerName') || "player"
@@ -34,14 +35,17 @@ const handleGoBtn = () => {
     if(checkInput(inputName)){
         setPlayerToLocalStorage(inputName.value)
         changeActiveWindow('main', 'field')
-        gameInit(getMode())
-
+        gameFieldInit(getMode())
     } else {
         inputName.focus();
     }
 }
-
+const handleBoardClick = () => {
+    boardInit(getMode())
+    changeActiveWindow('main', 'board')
+}
 export const initGame = () => {
     setPlayerName();
     document.querySelector('.main__btn')?.addEventListener('click', handleGoBtn)
+    document.querySelector("#leaderboard").addEventListener('click', handleBoardClick)
 }

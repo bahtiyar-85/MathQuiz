@@ -25,7 +25,7 @@
             </div>
             <button class="button main__btn">Let's go</button>
             <a class="main__link" href="#">don’t know rules? clicke here!</a>
-            <a class="main__link" href="#">Leader board</a>
+            <a class="main__link" href="#" id="leaderboard">Leader board</a>
         </div>
     </section>
     <section class="field fullscreen">
@@ -67,7 +67,20 @@
     </section>
     <section class="board fullscreen">
         <div class="board__contant">
-            <h3></h3>
+            <p class="board__back">Back to game</p>
+            <label>Game mode: 
+                <select class="board__select" name="gamemode" >
+                    <option value="practice">Practice</option>
+                    <option value="timeAttack">Time attack</option>
+                </select>
+            </label>
+            <h3>boardleaders</h3>
+            <ul class="board__list">
+                <li class="board__items">
+                    <span class="board__nickname">Baha</span>
+                    <span class="board__score">234</span>
+                </li>
+            </ul>
         </div>
     </section>
     <div class="modal">
