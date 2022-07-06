@@ -1,7 +1,12 @@
 import { getLeaderFromStorage } from "./field"
+import { changeActiveWindow } from "./main";
 
-const setLeaderBoard = (mode) => {
+export const renderLeaderBoard = (mode) => {
     const leadersList = getLeaderFromStorage(mode)
+    const select = document.querySelector('.board__select').getElementsByTagName('option');
+    for (let i = 0; i < select.length; i++) {
+        if (select[i].value === mode) select[i].selected = true;
+    }
     const listElem = document.querySelector(".board__list")
     const ul = document.createElement('ul')
     ul.classList.add('board__list')
@@ -18,9 +23,9 @@ const setLeaderBoard = (mode) => {
     })
     listElem.replaceWith(ul)
 }
-export const boardInit = (mode) => {
-    setLeaderBoard(mode)
-    
+export const boardInit = () => {
     const selectElem = document.querySelector(".board__select")
-    selectElem.addEventListener("change", (e) => setLeaderBoard(e.target.value))
+    selectElem.addEventListener("change", (e) => renderLeaderBoard(e.target.value))
+    document.querySelector(".board__back").addEventListener("click", () => changeActiveWindow("board", "main"))
+    const leaderListBtn = document.querySelector(".modal__leader-board")
 }
