@@ -52,3 +52,56 @@ $number-font: 'Kaushan Script', cursive;
         outline: 2px solid black
     }
 }
+.animated {
+    font-size: 30px;
+    position: relative;
+    animation-name: faderight;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+@keyframes fadedown {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+    to {
+        opacity: 1;
+        top: 50px;
+    }
+}
+@keyframes fadeup {
+    from {
+        opacity: 0;
+        top: 50px;
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+@keyframes shake {
+    0% {
+        left: 0;
+    }
+    25% {
+        left: -3px;
+    }
+    50% {
+        left: 0;
+    }
+    75% {
+        left: 3px;
+    }
+    100% {
+        left: 0;
+    }
+}
+@keyframes faderight {
+    from {
+        left: calc(100vw - 50%)
+    }
+    to {
+        left: 0;
+    }
+}
