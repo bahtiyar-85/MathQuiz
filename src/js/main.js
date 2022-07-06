@@ -1,5 +1,5 @@
-import { gameFieldInit } from "./field"
-import { boardInit } from "./leadersBoard"
+
+import { renderLeaderBoard } from "./leadersBoard"
 
 export const getPlayerFromLocalStorage = () => {
    return localStorage.getItem('playerName') || "player"
@@ -25,7 +25,7 @@ export const changeActiveWindow = (from, to) => {
     document.querySelector(`.${to}`).classList.add("block_active")
 }
 
-const getMode = () => {
+export const getMode = () => {
     const radioElem = document.querySelector("#practice")
     return radioElem.checked ? "practice" : "timeAttack"
 }
@@ -35,13 +35,12 @@ const handleGoBtn = () => {
     if(checkInput(inputName)){
         setPlayerToLocalStorage(inputName.value)
         changeActiveWindow('main', 'field')
-        gameFieldInit(getMode())
     } else {
         inputName.focus();
     }
 }
 const handleBoardClick = () => {
-    boardInit(getMode())
+    renderLeaderBoard(getMode())
     changeActiveWindow('main', 'board')
 }
 export const initGame = () => {

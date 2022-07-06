@@ -2,6 +2,8 @@ import config from "/src/data/config.json" assert {type: "json"};
 import { getPlayerFromLocalStorage } from "./main";
 import { checkInput } from "./main";
 import { changeActiveWindow } from "./main";
+import { getMode } from "./main";
+import { renderLeaderBoard } from "./leadersBoard";
 
 const getTimeLimit = () => {
     const time = config.timeLimit.split(/\s|\.|\:/)
@@ -99,18 +101,30 @@ export const getLeaderFromStorage = (mode) => {
     return  JSON.parse(localStorage.getItem(mode)) || []
 }
 
-const setLeaderToStorage = (mode, name, score) => {
+const setLeaderToStorage = ( name, score) => {
+    const mode = getMode()
     const leaderList = JSON.parse(localStorage.getItem(mode)) || []
-    const obj = {
-        nickname: name,
-        score: score
+    const index = leaderList.findIndex(item => item.nickname === name)
+    if(index === -1){
+        const obj = {
+            nickname: name,
+            score: score
+        }
+        leaderList.push(obj)
+    } else {
+        score > leaderList[index].score ? leaderList[index].score = score : null  
     }
-    leaderList.push(obj)
     leaderList.sort((a, b) => b.score - a.score)
     localStorage.setItem(mode, JSON.stringify(leaderList))
 }
 
-export const gameFieldInit = (mode) => {
+const handleToLeaderListClick = () => {
+    renderLeaderBoard(getMode())
+    modalToggle()
+    changeActiveWindow("field", "board")
+}
+
+export const gameFieldInit = () => {
   
     const handleCheck = () => {
         input.focus()
@@ -144,24 +158,45 @@ export const gameFieldInit = (mode) => {
         document.querySelector(".modal__incorrect-value").textContent = incorrect
     }
 
-    const handleStopGame = (mode, name, score) => {
-        setLeaderToStorage(mode, name, score)
+    const handleStopGame = (name, score) => {
+        const mode = getMode()
+        mode === "timeAttack" ? clearInterval(timer) : null
+        setLeaderToStorage( name, score)
         modalToggle()
         renderModal()
     }
+  
     
     const timerInit = () => {
         let time = getTimeLimit()
-        const timer = setInterval(function () {   
+        timer = setInterval(function () {   
             if (time <= 0) {
                 renderTimer(time)
                 clearInterval(timer)
-                handleStopGame(mode, playerName, score)
+                handleStopGame( playerName, score)
             } else { 
                 renderTimer(time)
             }
             --time
         }, 1000)
+    }
+
+    const setDefaultValues = () => {
+        max = 10
+        correct = 0
+        incorrect = 0
+        score = 0
+        rampage = 0
+        level = 1
+        playerName = getPlayerFromLocalStorage()
+        input.focus()
+        input.value = ""
+        newData = generateExample(max)
+        renderPlayerName(playerName)
+        renderExample(newData)
+        renderGameItems(score, level)
+        const mode = getMode()
+        mode === "timeAttack" ? timerInit() : null
     }
 
     let max = 10
@@ -170,19 +205,14 @@ export const gameFieldInit = (mode) => {
     let score = 0
     let rampage = 0
     let level = 1
+    let timer
     const { input, btnCheck, btnStop } = getFieldElements(); 
-    const playerName = getPlayerFromLocalStorage()
-    input.focus()
-    input.value = ""
-    renderPlayerName(playerName)
+    let playerName = getPlayerFromLocalStorage()
     let newData = generateExample(max)
-    renderExample(newData)
-    renderGameItems(score, level)
-    mode === "timeAttack" ? timerInit() : null
 
     input?.addEventListener('input', (e) => renderResult(e))
     btnCheck?.addEventListener('click', handleCheck )
-    btnStop.addEventListener('click', () => handleStopGame(mode, playerName, score) )
+    btnStop.addEventListener('click', () => handleStopGame( playerName, score) )
     input?.addEventListener('keypress', function (e) {
         if (e.key === 'Enter' && e.target.value !== "") {
             handleCheck()
@@ -192,4 +222,10 @@ export const gameFieldInit = (mode) => {
         modalToggle()
         changeActiveWindow("field", "main")
     })
+    document.querySelector(".main__btn").addEventListener('click', setDefaultValues)
+    document.querySelector(".modal__play-again").addEventListener('click', function(){
+        modalToggle()
+        setDefaultValues()
+    })
+    document.querySelector(".modal__leader-board").addEventListener('click', handleToLeaderListClick)
 } 
