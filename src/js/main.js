@@ -39,10 +39,12 @@ const handleGoBtn = () => {
         inputName.focus();
     }
 }
+
 const handleBoardClick = () => {
     renderLeaderBoard(getMode())
     changeActiveWindow('main', 'board')
 }
+
 export const initGame = () => {
     setPlayerName();
     document.querySelector('.main__btn')?.addEventListener('click', handleGoBtn)

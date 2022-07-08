@@ -27,5 +27,4 @@ export const boardInit = () => {
     const selectElem = document.querySelector(".board__select")
     selectElem.addEventListener("change", (e) => renderLeaderBoard(e.target.value))
     document.querySelector(".board__back").addEventListener("click", () => changeActiveWindow("board", "main"))
-    const leaderListBtn = document.querySelector(".modal__leader-board")
 }

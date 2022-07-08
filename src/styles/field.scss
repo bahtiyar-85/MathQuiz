@@ -1,52 +1,41 @@
 .field {
     display: none;
-    justify-content: center;
-    // .field__contant
-    &__contant {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 900px;
-    }
-
-    // .field__level
+   
     &__level {
         text-align: center;
+        margin-bottom: 30px;
+        font-size: 24px;
+        &-value {
+            font-size: 24px;
+        }
     }
 
-    // .field__items
     &__items {
-        width: 60%;
+        width: 100%;
         display: flex;
         justify-content: space-between;
     }
 
-    // .field__user-items
     &__user-items {
         display: flex;
         flex-direction: column;
     }
 
-    // .field__user-name
-    &__user-name {
-    }
+    // &__user-name {
+    // }
 
-    // .field__score
-    &__score {
-    }
+    // &__score {
+    // }
 
-    // .field__timer
     &__timer {
         display: flex;
         flex-direction: column;
     }
 
-    // .field__timer-title
     &__timer-title {
         text-align: center;
     }
 
-    // .field__timer-items
     &__timer-items {
         padding-left: 0;
         list-style-type: none;
@@ -55,43 +44,111 @@
         width: 100px;
     }
 
-    // .field__timer-item {
     &__timer-item {
        width: 25px;
        text-align: center;
     }
 
-    // .field__list
     &__list {
-        width: 50%;
+        width: 100%;
         list-style-type: none;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         padding-left: 0;
-
+        width: 100%;
+        padding: 150px 0 80px;
     }
 
-    // .field__list-item
     &__list-item {
         font-family: $number-font;
-        font-size: 80px;
+        font-size: 60px;
+        text-align: center;
     }
-
-    // .field__input-items
+    &__number_width {
+        width: 20%;
+    }
+    &__operator_width {
+        width: 5%;
+    }
+    &__result {
+        width: 30%;
+        text-align: center;
+    }
     &__input-items {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 
-    // .field__stop
     &__stop {
-        
+        width: 20%;   
+        color: red;     
     }
 
-    // .field__input-value
     &__input-value {
+        width: 30%;
     }
 
-    // .field__check
     &__check {
+        width: 20%;
+        color: blue;
     }
 }
 
+@media(max-width:991px) {
+    .field{
+        &__number_width {
+            width: 15%;
+        }
+        &__operator_width {
+            width: 5%;
+        }
+        &__result {
+            width: 35%;
+        }
+    }
+}
+
+@media(max-width:767px) {
+    .field{
+        &__list-item {
+            font-size: 52px;
+        }
+        &__number_width {
+            width: 25%;
+        }
+        &__operator_width {
+            width: 5%;
+        }
+        &__result {
+            width: 40%;
+        }
+    }
+}
+
+@media(max-width:575px) {
+    .field{
+        &__list-item {
+            font-size: 32px;
+        }
+        &__number_width {
+            width: 20%;
+        }
+        &__operator_width {
+            width: 5%;
+        }
+        &__result {
+            width: 50%;
+        }
+        &__input-value {
+            width: 50%;
+            margin: 0 2px;
+        }
+        &__stop {
+            width: 25%;        
+        }
+        &__check {
+            width: 25%;
+        }
+    }
+}

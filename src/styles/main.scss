@@ -1,25 +1,24 @@
 .main {
     display: none;
-    &__contant{
-        margin: 0 auto;
-        max-width: 900px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
-    &__name {
-      
+    &__title {
+        font-size: 36px; 
+        margin-bottom: 20px;
+    }
+    &__input-name {
+        font-size: 28px;
+        margin-bottom: 25px;
     }
 
     &__modes {
         display: flex;
         justify-content: space-between;
-        width: 280px;
+        width: 400px;
     }
     &__btn {
         margin-top: 30px;
-        width: 100px;
+        width: 150px;
+        margin-bottom: 20px;
     }
     &__link {
         margin-top: 15px;
@@ -35,16 +34,15 @@
 
 .radio {
     position: relative;
-    height: 30px;
-    width: 120px;
-
+    height: 50px;
+    width: 150px;
     &__input {
         appearance: none;
 
         &:checked + .radio__label{
             background: #0278ED;
-            color: #fff;
-        } 
+            color: #fff
+        }
         &:focus + .radio__label {
             outline: 2px solid black;
         }
@@ -63,5 +61,24 @@
         cursor: pointer;
         padding-top: 8px;
         border: 2px solid #0278ED;
+        color: #50565d;
+        &:hover {
+            background: hsl(189, 57%, 93%);
+        }
+    }
+}
+@media(max-width: 575px) {
+    .main__modes {
+        width: 100%;
+    }
+    .main__input-name {
+        width: 100%;
+    }
+    .radio {
+        width: 120px;
+        &__label {
+            font-size: 18px;
+            padding-top: 10px;
+        }
     }
 }

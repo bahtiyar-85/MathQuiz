@@ -9,8 +9,6 @@
     overflow-y: auto;
     display: none;
     justify-content: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
     margin: 0;
 
     &__show {
@@ -24,21 +22,58 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      
+        border-radius: 10px;
+        margin: auto 0;
     }
-
+    &__back-item {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
     &__back {
+        color: blue;
+        font-size: 18px;
+        &:focus {
+            outline: none;
+            text-decoration: underline;
+        }
     }
 
     &__title {
+        font-size: 28px;
+        margin: 60px 0 30px;
     }
 
     &__score {
+      
+        &-value {
+            margin-bottom: 10px;
+            color: red;
+        }
     }
 
     &__correct {
+        margin-bottom: 10px;
+        &-value {
+            color: red
+        }
     }
 
     &__incorrect {
+        margin-bottom: 60px;
+        &-value {
+            color: red;
+        }
     }
+  
+    &__leader-board {
+        width: 180px;
+        margin: 10px 0;
+    }
+
+    &__play-again {
+        width: 180px;
+        margin-bottom: 20px;
+    }
+    
 }

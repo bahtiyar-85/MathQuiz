@@ -59,6 +59,7 @@ const renderExample = (renderData) => {
     operator.textContent = renderData.operator
    
 }
+
 const renderGameItems = (userScore, userLevel) => {
     const { score, result, level } = getFieldElements()
 
@@ -83,6 +84,9 @@ const getFieldElements = () => {
 }
 
 const renderResult = (e) => {
+    if (e.target.value.length > 6) {
+        e.target.value = e.target.value.slice(0,6); 
+    }
     const {result} = getFieldElements()
     result.textContent = e.target.value
 }
@@ -156,6 +160,7 @@ export const gameFieldInit = () => {
         document.querySelector(".modal__score-value").textContent = score
         document.querySelector(".modal__correct-value").textContent = correct
         document.querySelector(".modal__incorrect-value").textContent = incorrect
+        document.querySelector(".modal__leader-board").focus()
     }
 
     const handleStopGame = (name, score) => {
@@ -164,6 +169,7 @@ export const gameFieldInit = () => {
         setLeaderToStorage( name, score)
         modalToggle()
         renderModal()
+        
     }
   
     

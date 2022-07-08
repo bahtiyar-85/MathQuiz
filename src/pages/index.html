@@ -8,61 +8,64 @@
 </head>
 <body>
     <section class="main fullscreen block_active">
-        <div class="main__contant">
-            <h1 class="main__title">Welcome to the game, Math Quiz</h1>
-            <span class="animated">-1</span>
-            <p>Enter your name:</p>
-            <input class="input main__name" type="text" id="name">
-            <p>Choose your game mode:</p>
-            <div class="main__modes">
-                <div class="radio">
-                    <input class="radio__input " type="radio" name="mode" id="practice" checked>
-                    <label class="radio__label" for="practice">Practice</label>
+        <div class="container">
+            <div class="contant">
+                <h1 class="main__title">Math Quiz</h1>
+                <p class="title">Enter your name:</p>
+                <input class="input main__input-name" type="text" id="name">
+                <p class="title">Choose your game mode:</p>
+                <div class="main__modes">
+                    <div class="radio">
+                        <input class="radio__input " type="radio" name="mode" id="practice" checked>
+                        <label class="radio__label" for="practice">Practice</label>
+                    </div>
+                    <div class="radio">
+                        <input class="radio__input " type="radio" name="mode" id="timeattack">
+                        <label class="radio__label" for="timeattack">Time Attack</label>
+                    </div>            
                 </div>
-                <div class="radio">
-                    <input class="radio__input " type="radio" name="mode" id="timeattack">
-                    <label class="radio__label" for="timeattack">Time Attack</label>
-                </div>            
+                <button class="button main__btn">Let's go</button>
+                <button class="button-link main__btn-rules">Don’t know rules? clicke here!</button>
+                <button class="button-link main__btn-leaders" id="leaderboard">Leader board</button>
             </div>
-            <button class="button main__btn">Let's go</button>
-            <a class="main__link" href="#">don’t know rules? clicke here!</a>
-            <a class="main__link" href="#" id="leaderboard">Leader board</a>
         </div>
     </section>
     <section class="field fullscreen">
-        <div class="field__contant">
-            <h3 class="field__level">Level 
-                <span class="field__level-value">1</span>
-            </h3>
-            <div class="field__items">
-                <div class="field__user-items">
-                    <span class="field__user-name">Your name:
-                        <span class="field__user-value"></span>
-                    </span>
-                    <span class="field__score">Your score: 
-                        <span class="field__score-value">0</span>
-                    </span>
+        <div class="container">
+            <div class="contant">
+                <h3 class="field__level">Level 
+                    <span class="field__level-value">1</span>
+                </h3>
+                <div class="field__items">
+                    <div class="field__user-items">
+                        <span class="field__user-name">Your name:
+                            <span class="field__user-value"></span>
+                        </span>
+                        <span class="field__score">Your score: 
+                            <span class="field__score-value">0</span>
+                        </span>
+                    </div>
+                    <div class="field__timer">
+                        <span class="field__timer-title">time</span>
+                        <ul class="field__timer-items">
+                            <li class="field__timer-item field__timer-minutes">00</li>
+                            <li class="field__timer-item">:</li>
+                            <li class="field__timer-item field__timer-seconds">00</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="field__timer">
-                    <span class="field__timer-title">time</span>
-                    <ul class="field__timer-items">
-                        <li class="field__timer-item field__timer-minutes">00</li>
-                        <li class="field__timer-item">:</li>
-                        <li class="field__timer-item field__timer-seconds">00</li>
-                    </ul>
+                <ul class="field__list">
+                    <li class="field__list-item field__number1 field__number_width">3</li> 
+                    <li class="field__list-item field__operator fiels__operator_width">+</li>
+                    <li class="field__list-item field__number2 field__number_width">2</li>
+                    <li class="field__list-item fiels__operator_width">=</li>
+                    <li class="field__list-item field__result">?</li>           
+                </ul>
+                <div class="field__input-items">
+                    <button class="button field__stop">Stop</button>
+                    <input class="input field__input-value" type="number">
+                    <button class="button field__check">Check</button>
                 </div>
-            </div>
-            <ul class="field__list">
-                <li class="field__list-item field__number1">3</li> 
-                <li class="field__list-item field__operator">+</li>
-                <li class="field__list-item field__number2">2</li>
-                <li class="field__list-item">=</li>
-                <li class="field__list-item field__result">?</li>           
-            </ul>
-            <div class="field__input-items">
-                <button class="button field__stop">Stop</button>
-                <input class="input field__input-value" type="number">
-                <button class="button field__check">Check</button>
             </div>
         </div>
     </section>
@@ -86,7 +89,9 @@
     </section>
     <div class="modal">
         <div class="modal__contant">
-            <p class="modal__back">Back to main menu</p>
+            <div class="modal__back-item">
+                <button class="button-link modal__back">back to menu</button>
+            </div>
             <h3 class="modal__title">Time's up</h3>
             <p class="modal__score">Your score:</p>
             <h5 class="modal__score-value">12</h5>
