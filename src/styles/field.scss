@@ -20,12 +20,9 @@
         display: flex;
         flex-direction: column;
     }
-
-    // &__user-name {
-    // }
-
-    // &__score {
-    // }
+    &__animation-item {
+        opacity: 0;
+    }
 
     &__timer {
         display: flex;

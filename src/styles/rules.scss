@@ -1,0 +1,23 @@
+.rules {
+    display: none;
+    &__back-item {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    &__title {
+        margin: 30px 0;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        margin-left: 36px;
+        line-height: 40px;
+       
+    }
+   
+}
+.span_bold {
+    font-weight: bold;
+}

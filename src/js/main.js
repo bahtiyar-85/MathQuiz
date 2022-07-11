@@ -43,10 +43,15 @@ const handleGoBtn = () => {
 const handleBoardClick = () => {
     renderLeaderBoard(getMode())
     changeActiveWindow('main', 'board')
+    document.querySelector(".board__back").focus()
 }
 
 export const initGame = () => {
     setPlayerName();
     document.querySelector('.main__btn')?.addEventListener('click', handleGoBtn)
     document.querySelector("#leaderboard").addEventListener('click', handleBoardClick)
+    document.querySelector(".main__btn-rules").addEventListener('click', () => {
+        changeActiveWindow('main', 'rules')
+        document.querySelector(".rules__back").focus()
+    })
 }

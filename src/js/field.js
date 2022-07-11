@@ -119,18 +119,28 @@ const setLeaderToStorage = ( name, score) => {
         score > leaderList[index].score ? leaderList[index].score = score : null  
     }
     leaderList.sort((a, b) => b.score - a.score)
-    localStorage.setItem(mode, JSON.stringify(leaderList))
+    localStorage.setItem(mode, JSON.stringify(leaderList.slice(0, 10)))
 }
 
 const handleToLeaderListClick = () => {
     renderLeaderBoard(getMode())
     modalToggle()
     changeActiveWindow("field", "board")
+    document.querySelector(".board__select").focus()
+}
+
+const addAnimation = (elem, animClass, string="") => {
+    string ? elem.textContent = string : null
+    elem.classList.add(animClass)
+    setTimeout(() => elem.classList.remove(animClass), 1000)
 }
 
 export const gameFieldInit = () => {
   
     const handleCheck = () => {
+        const animElem = document.querySelector(".field__animation-item")
+        const scoreElem = document.querySelector(".field__score-value")
+        const listElem = document.querySelector(".field__list")
         input.focus()
         if(checkInput(input) === false){
             return 0
@@ -139,10 +149,13 @@ export const gameFieldInit = () => {
             correct++
             score++
             rampage++
+            addAnimation(animElem, "animation-up" , "+1")           
         } else {
             incorrect++
             score--
             rampage = 0
+            addAnimation(animElem, "animation-down" , "-1")
+            addAnimation(scoreElem, "animation-shake")
         } 
         if(rampage == 5) {
             level++
@@ -150,10 +163,14 @@ export const gameFieldInit = () => {
             rampage = 0
         }
        
-        input.value = ""
-        newData = generateExample(max)
-        renderExample(newData)
-        renderGameItems(score, level)
+        addAnimation(listElem, "animation-left")
+        setTimeout( () => {
+            input.value = ""
+            newData = generateExample(max)
+            renderExample(newData)
+            addAnimation(listElem, "animation-right")
+            renderGameItems(score, level)
+        }, 1000)
     }
 
     const renderModal = () => {
@@ -165,11 +182,10 @@ export const gameFieldInit = () => {
 
     const handleStopGame = (name, score) => {
         const mode = getMode()
-        mode === "timeAttack" ? clearInterval(timer) : null
+        clearInterval(timer)
         setLeaderToStorage( name, score)
         modalToggle()
         renderModal()
-        
     }
   
     
@@ -187,6 +203,14 @@ export const gameFieldInit = () => {
         }, 1000)
     }
 
+    const timeInit = () => {
+        let time = 1
+        timer = setInterval(function () {   
+            renderTimer(time)
+            time++
+        }, 1000)
+    }
+
     const setDefaultValues = () => {
         max = 10
         correct = 0
@@ -200,9 +224,10 @@ export const gameFieldInit = () => {
         newData = generateExample(max)
         renderPlayerName(playerName)
         renderExample(newData)
+
         renderGameItems(score, level)
         const mode = getMode()
-        mode === "timeAttack" ? timerInit() : null
+        mode === "timeAttack" ? timerInit() : timeInit()
     }
 
     let max = 10
@@ -227,6 +252,7 @@ export const gameFieldInit = () => {
     document.querySelector(".modal__back").addEventListener("click", () => {
         modalToggle()
         changeActiveWindow("field", "main")
+        document.querySelector(".main__input-name").focus()
     })
     document.querySelector(".main__btn").addEventListener('click', setDefaultValues)
     document.querySelector(".modal__play-again").addEventListener('click', function(){

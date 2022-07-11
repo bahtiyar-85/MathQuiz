@@ -43,6 +43,7 @@
                         </span>
                         <span class="field__score">Your score: 
                             <span class="field__score-value">0</span>
+                            <span class="field__animation-item">1</span>
                         </span>
                     </div>
                     <div class="field__timer">
@@ -70,29 +71,46 @@
         </div>
     </section>
     <section class="board fullscreen">
-        <div class="board__contant">
-            <p class="board__back">Back to game</p>
-            <label>Game mode: 
-                <select class="board__select" name="gamemode" >
-                    <option value="practice">Practice</option>
-                    <option value="timeAttack">Time attack</option>
-                </select>
-            </label>
-            <h3>boardleaders</h3>
-            <ul class="board__list">
-                <li class="board__items">
-                    <span class="board__nickname">Baha</span>
-                    <span class="board__score">234</span>
-                </li>
-            </ul>
+        <div class="container board_center">
+            <div class="board__contant">
+                <div class="board__back-item">
+                    <button class="button-back board__back">back to menu</button>
+                </div>
+                <label class="board__mode">Game mode: 
+                    <select class="board__select" name="gamemode" >
+                        <option value="practice">Practice</option>
+                        <option value="timeAttack">Time attack</option>
+                    </select>
+                </label>
+                <h3 class="board__title">boardleaders</h3>
+                <ul class="board__list">
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="rules fullscreen">
+        <div class="container">
+            <div class="contant">
+                <div class="rules__back-item">
+                    <button class="button-back rules__back">back to menu</button>
+                </div>
+                <h3 class="rules__title">How to play</h3>
+                <ul class="rules__list">
+                    <li class="rules__list-item">The game gives arithmetic operations your task is to answer correctly</li>
+                    <li class="rules__list-item">Points are added for a correct answer, points are deducted for an incorrect one.</li>
+                    <li class="rules__list-item">The game has two modes <span class="span_bold">"Practice"</span> - endless mode and <span class="span_bold">"Time attack"</span> - before the end of time you need to score the maximum number of points</li>
+                    <li class="rules__list-item">"Leaderboard" - you can see the best result of yourself and other players</li>
+                    <li class="rules__list-item">if you are using only the keyboard, then to move between elements use  <span class="span_bold">"Tab"</span> and back  <span class="span_bold">"Tab</span> + Shift", and for change mode use arrows button "Left" and "Right", for select use button <span class="span_bold">"Enter"</span></li>
+                </ul>
+            </div>
         </div>
     </section>
     <div class="modal">
         <div class="modal__contant">
-            <div class="modal__back-item">
-                <button class="button-link modal__back">back to menu</button>
+            <div class="button-back modal__back-item">
+                <button class="button-back modal__back">back to menu</button>
             </div>
-            <h3 class="modal__title">Time's up</h3>
+            <h3 class="modal__title">Game over</h3>
             <p class="modal__score">Your score:</p>
             <h5 class="modal__score-value">12</h5>
             <p class="modal__correct"> Correct: <span class="modal__correct-value"></span></p>
