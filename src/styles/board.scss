@@ -1,6 +1,5 @@
 .board {
     display: none;
-    justify-content: center;
     &_center {
         height: 100%;
         display: flex;
@@ -40,6 +39,16 @@
         border-radius: 4px;
         &:focus {
             outline: 2px solid black;
+        }
+    }
+}
+@media(max-width: 575px){
+    .board {
+        &__contant {
+            height: 100%;
+        }
+        &__items {
+            line-height: 30px;
         }
     }
 }

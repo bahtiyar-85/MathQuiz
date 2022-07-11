@@ -14,10 +14,20 @@
     &__list {
         margin-left: 36px;
         line-height: 40px;
-       
     }
    
 }
 .span_bold {
     font-weight: bold;
+}
+@media(max-width: 575px){
+    .rules {
+        &__title {
+            margin: 15px 0;
+        }
+        &__list {
+            line-height: 30px;
+            margin-left: 6px;
+        }
+    }
 }

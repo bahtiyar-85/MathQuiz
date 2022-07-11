@@ -186,7 +186,7 @@ $number-font: 'Kaushan Script', cursive;
 }
 @keyframes faderight {
     from {
-        left: calc(100vw - 50%)
+        left: calc(100% + (100vw - 100%) / 2 )
     }
     to {
         left: 0;
@@ -198,7 +198,7 @@ $number-font: 'Kaushan Script', cursive;
         right: 0
     }
     to {
-        right: calc(100vw - 50%)
+        right: calc(100% + (100vw - 100%) / 2 )
     }
 }
 input[type="number"]::-webkit-outer-spin-button,
