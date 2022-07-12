@@ -162,17 +162,15 @@ export const gameFieldInit = () => {
             max += 5
             rampage = 0
         }
-       
+        input.value = ""
         addAnimation(listElem, "animation-left")
         setTimeout( () => {
-            input.value = ""
             newData = generateExample(max)
             renderExample(newData)
             addAnimation(listElem, "animation-right")
             renderGameItems(score, level)
         }, 1000)
     }
-
     const renderModal = () => {
         document.querySelector(".modal__score-value").textContent = score
         document.querySelector(".modal__correct-value").textContent = correct
