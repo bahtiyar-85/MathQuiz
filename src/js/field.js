@@ -162,10 +162,9 @@ export const gameFieldInit = () => {
             max += 5
             rampage = 0
         }
-       
+        input.value = ""
         addAnimation(listElem, "animation-left")
         setTimeout( () => {
-            input.value = ""
             newData = generateExample(max)
             renderExample(newData)
             addAnimation(listElem, "animation-right")
