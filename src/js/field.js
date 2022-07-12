@@ -136,11 +136,13 @@ const addAnimation = (elem, animClass, string="") => {
 }
 
 export const gameFieldInit = () => {
-  
+    const timerElem = document.querySelector(".field__timer-items")
+    
     const handleCheck = () => {
         const animElem = document.querySelector(".field__animation-item")
         const scoreElem = document.querySelector(".field__score-value")
         const listElem = document.querySelector(".field__list")
+       
         input.focus()
         if(checkInput(input) === false){
             return 0
@@ -197,6 +199,7 @@ export const gameFieldInit = () => {
             } else { 
                 renderTimer(time)
             }
+            time === 10 ? addAnimation(timerElem, "animation-flash"): null
             --time
         }, 1000)
     }

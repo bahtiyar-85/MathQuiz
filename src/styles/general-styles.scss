@@ -149,7 +149,11 @@ $number-font: 'Kaushan Script', cursive;
     animation-duration: 1.02s;
     animation-iteration-count: 1;
 }
-
+.animation-flash {
+    animation-name: flash;
+    animation-duration: .5s;
+    animation-iteration-count: 2;
+}
 @keyframes fadedown {
     from {
         opacity: 0;
@@ -207,6 +211,18 @@ $number-font: 'Kaushan Script', cursive;
     }
     to {
         right: calc(100% + (100vw - 100%) / 2 )
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 input[type="number"]::-webkit-outer-spin-button,
