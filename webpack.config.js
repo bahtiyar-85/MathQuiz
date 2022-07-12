@@ -38,30 +38,18 @@ module.exports = {
             filename: "index.html",
             template: './src/pages/index.html',
         }),
-        // new HTMLWebpackPlugin({
-        //     filename: "trening.html",
-        //     template: './src/pug/pages/trening.pug',
-        // }),
-        // new HTMLWebpackPlugin({
-        //     filename: "marketing.html",
-        //     template: './src/pug/pages/marketing.pug',
-        // }),
-        // new HTMLWebpackPlugin({
-        //     filename: "startup.html",
-        //     template: './src/pug/pages/startup.pug',
-        // }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "styles.css",
         }),
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //         {
-        //             from: "./src/images/icons",
-        //             to: "./images/icons"
-        //         },
-        //     ]
-        // }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: "./src/data",
+                    to: "./data"
+                },
+            ]
+        }),
          new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
@@ -70,13 +58,6 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
             },
-            // {
-            //     test: /\.pug$/,
-            //     loader: 'pug-loader',
-            //     options: {
-            //         pretty: true
-            //     }
-            // },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
                 type: 'asset/resource',

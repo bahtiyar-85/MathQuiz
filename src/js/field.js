@@ -15,7 +15,7 @@ const convert = (num) => {
 }
 
 const renderTimer = (time) => {
-    const seconds = time%60
+    const seconds = time % 60
     const minutes = Math.floor(time/60) 
     document.querySelector('.field__timer-minutes').textContent = convert(minutes)
     document.querySelector('.field__timer-seconds').textContent = convert(seconds)
@@ -208,6 +208,7 @@ export const gameFieldInit = () => {
         timer = setInterval(function () {   
             renderTimer(time)
             time++
+            time === 3600 ? time = 0 : null
         }, 1000)
     }
 

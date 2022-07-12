@@ -1,5 +1,6 @@
 .rules {
     display: none;
+    overflow-y: auto;
     &__back-item {
         display: flex;
         justify-content: flex-start;
