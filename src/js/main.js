@@ -29,12 +29,17 @@ export const getMode = () => {
     const radioElem = document.querySelector("#practice")
     return radioElem.checked ? "practice" : "timeAttack"
 }
+const showModalGo = () => {
+    document.querySelector(".go").classList.add("go_show")
+    document.querySelector(".go__btn").focus()
+}
 
 const handleGoBtn = () => {
     const inputName = document.querySelector("#name")
     if(checkInput(inputName)){
         setPlayerToLocalStorage(inputName.value)
         changeActiveWindow('main', 'field')
+        showModalGo()
     } else {
         inputName.focus();
     }
