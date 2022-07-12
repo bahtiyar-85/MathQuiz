@@ -137,7 +137,7 @@ const addAnimation = (elem, animClass, string="") => {
 
 export const gameFieldInit = () => {
     const timerElem = document.querySelector(".field__timer-items")
-    
+
     const handleCheck = () => {
         const animElem = document.querySelector(".field__animation-item")
         const scoreElem = document.querySelector(".field__score-value")
@@ -173,6 +173,7 @@ export const gameFieldInit = () => {
             renderGameItems(score, level)
         }, 1000)
     }
+
     const renderModal = () => {
         document.querySelector(".modal__score-value").textContent = score
         document.querySelector(".modal__correct-value").textContent = correct
@@ -239,13 +240,13 @@ export const gameFieldInit = () => {
     let rampage = 0
     let level = 1
     let timer
-    const { input, btnCheck, btnStop } = getFieldElements(); 
+    const { input, btnCheck, btnStop } = getFieldElements()
     let playerName = getPlayerFromLocalStorage()
     let newData = generateExample(max)
 
     input?.addEventListener('input', (e) => renderResult(e))
     btnCheck?.addEventListener('click', handleCheck )
-    btnStop.addEventListener('click', () => handleStopGame( playerName, score) )
+    btnStop.addEventListener('click', () => handleStopGame( playerName, score))
     input?.addEventListener('keypress', function (e) {
         if (e.key === 'Enter' && e.target.value !== "") {
             handleCheck()
@@ -256,7 +257,10 @@ export const gameFieldInit = () => {
         changeActiveWindow("field", "main")
         document.querySelector(".main__input-name").focus()
     })
-    document.querySelector(".main__btn").addEventListener('click', setDefaultValues)
+    document.querySelector(".go__btn").addEventListener('click', () => {
+        document.querySelector(".go").classList.remove("go_show")
+        setDefaultValues()
+    })
     document.querySelector(".modal__play-again").addEventListener('click', function(){
         modalToggle()
         setDefaultValues()

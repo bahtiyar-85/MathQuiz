@@ -1,6 +1,7 @@
 .field {
     display: none;
-   
+    position: relative;
+    overflow: hidden;
     &__level {
         text-align: center;
         margin-bottom: 30px;
@@ -90,6 +91,34 @@
     &__check {
         width: 20%;
         color: blue;
+    }
+}
+.go {
+    background: #fff;
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    opacity: 0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    transition: .5s;
+
+    &_show {
+        opacity: 1;
+        transition: .5s;
+    }
+
+    &__btn {
+        width: 100%;
+        height: 52px;
     }
 }
 
